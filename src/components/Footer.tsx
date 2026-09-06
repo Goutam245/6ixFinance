@@ -72,7 +72,7 @@ export const Footer = () => {
         </div>
 
         <div className="mt-14 pt-6 border-t border-white/5 flex flex-col md:flex-row items-center justify-between gap-4 text-[13px] text-muted-foreground">
-          <p>© 2025 6ixFinance. All Rights Reserved.</p>
+          <p>© 2026 6ixFinance. All Rights Reserved.</p>
           <div className="flex gap-6">
             <Link to="/privacy" className="hover:text-teal-bright">Privacy Policy</Link>
             <Link to="/terms" className="hover:text-teal-bright">Terms</Link>
