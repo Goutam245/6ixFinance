@@ -1,0 +1,227 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Brand semantic tokens — HSL only */
+    --background: 219 58% 6%;            /* #070D1A */
+    --foreground: 0 0% 100%;
+
+    --bg-secondary: 218 52% 11%;         /* #0D1829 */
+    --bg-card: 218 52% 14%;              /* #111F35 */
+    --bg-light: 225 100% 97%;            /* #F0F4FF */
+    --bg-white: 0 0% 100%;
+
+    --card: 218 52% 14%;
+    --card-foreground: 0 0% 100%;
+
+    --popover: 218 52% 11%;
+    --popover-foreground: 0 0% 100%;
+
+    --primary: 224 76% 40%;              /* #1E40AF navy — for button backgrounds */
+    --primary-foreground: 0 0% 100%;
+
+    /* Accent token used for text/icons/borders on dark navy bg — must stay bright for contrast */
+    --teal: 217 91% 60%;                 /* #3B82F6 bright blue */
+    --teal-bright: 213 94% 78%;          /* #93C5FD lighter blue for hover */
+    --gold: 44 50% 54%;                  /* #C9A84C */
+    --gold-light: 42 79% 72%;            /* #F0D080 */
+
+    --secondary: 218 52% 11%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 218 30% 18%;
+    --muted-foreground: 220 14% 88%;     /* #DCE2EC — readable body text on dark navy */
+
+    --accent: 224 76% 40%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 70% 55%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 0 0% 100%;                 /* used with /[opacity] */
+    --border-teal: 224 76% 40%;
+    --input: 218 30% 22%;
+    --ring: 224 76% 40%;
+
+    --radius: 1rem;
+
+    --sidebar-background: 219 58% 6%;
+    --sidebar-foreground: 0 0% 100%;
+    --sidebar-primary: 224 76% 40%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 218 52% 14%;
+    --sidebar-accent-foreground: 0 0% 100%;
+    --sidebar-border: 218 30% 18%;
+    --sidebar-ring: 224 76% 40%;
+  }
+
+  .dark {
+    /* Site is dark by default — keep parity */
+    --background: 219 58% 6%;
+    --foreground: 0 0% 100%;
+  }
+}
+
+@layer base {
+  * { @apply border-border/10; }
+  html { scroll-behavior: smooth; }
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Inter', system-ui, sans-serif;
+    font-size: 17px;
+    line-height: 1.75;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Space Grotesk', system-ui, sans-serif;
+    font-weight: 700;
+  }
+}
+
+@layer utilities {
+  .font-display { font-family: 'Space Grotesk', system-ui, sans-serif; }
+  .font-mono-fin { font-family: 'JetBrains Mono', monospace; }
+
+  .text-gradient-teal {
+    background: linear-gradient(135deg, #93C5FD, #3B82F6);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .text-gradient-gold {
+    background: linear-gradient(135deg, #F0D080, #C9A84C);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .bg-gradient-hero {
+    background: linear-gradient(135deg, #070D1A 0%, #0D1829 50%, #0A1F3A 100%);
+  }
+  .bg-gradient-teal {
+    background: linear-gradient(135deg, #1E3A8A 0%, #1E40AF 100%);
+  }
+  .bg-gradient-gold {
+    background: linear-gradient(135deg, #B8860B 0%, #C9A84C 100%);
+  }
+  .bg-gradient-card {
+    background: linear-gradient(145deg, #111F35, #0D1829);
+  }
+
+  .label-eyebrow {
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+  }
+
+  .glass-card {
+    background: rgba(13,24,41,0.8);
+    border: 1px solid rgba(30,64,175,0.2);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+  }
+
+  .premium-shadow {
+    box-shadow: 0 40px 80px rgba(0,0,0,0.5), 0 0 40px rgba(30,64,175,0.08);
+  }
+
+  .btn-glow:hover {
+    box-shadow: 0 8px 30px rgba(30,64,175,0.4);
+  }
+
+  .card-hover {
+    transition: all 0.35s ease;
+  }
+  .card-hover:hover {
+    transform: translateY(-8px);
+    border-color: rgba(30,64,175,0.5);
+    box-shadow: 0 20px 60px rgba(30,64,175,0.1);
+  }
+
+  .border-glow {
+    animation: borderGlow 3s ease infinite;
+  }
+}
+
+/* Orb animations */
+@keyframes float1 {
+  0%, 100% { transform: translate(0, 0); }
+  50% { transform: translate(-30px, 20px); }
+}
+@keyframes float2 {
+  0%, 100% { transform: translate(0, 0); }
+  50% { transform: translate(40px, -30px); }
+}
+@keyframes float3 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(20px, 30px) scale(1.1); }
+}
+@keyframes borderGlow {
+  0%, 100% { box-shadow: 0 0 0 rgba(30,64,175,0); }
+  50% { box-shadow: 0 0 20px rgba(30,64,175,0.2); }
+}
+@keyframes floatPill {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+@keyframes ticker {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+@keyframes pulseDot {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+
+.orb {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+}
+.orb-1 {
+  width: 600px; height: 600px;
+  background: #1E40AF;
+  top: -120px; right: -120px;
+  filter: blur(100px);
+  opacity: 0.12;
+  animation: float1 12s ease infinite;
+}
+.orb-2 {
+  width: 400px; height: 400px;
+  background: #C9A84C;
+  bottom: -100px; left: -80px;
+  filter: blur(80px);
+  opacity: 0.08;
+  animation: float2 8s ease 3s infinite;
+}
+.orb-3 {
+  width: 200px; height: 200px;
+  background: #3B82F6;
+  top: 40%; left: 45%;
+  filter: blur(60px);
+  opacity: 0.06;
+  animation: float3 15s ease 6s infinite;
+}
+
+.ticker-track {
+  display: flex;
+  width: max-content;
+  animation: ticker 30s linear infinite;
+}
+
+.float-pill { animation: floatPill 6s ease infinite; }
+.float-pill-2 { animation: floatPill 8s ease 2s infinite; }
+.float-pill-3 { animation: floatPill 10s ease 4s infinite; }
+
+.pulse-dot { animation: pulseDot 2s ease infinite; }
+
+@media (max-width: 640px) {
+  .orb { transform: scale(0.5); }
+  .float-pill, .float-pill-2, .float-pill-3 { display: none; }
+  .ticker-strip { display: none; }
+}
